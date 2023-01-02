@@ -1,8 +1,9 @@
+import { Board } from "./components/board/Board"
 
 function App() {
 
   return (
-    <h1>Oi</h1>
+    <Board />
   )
 }
 
