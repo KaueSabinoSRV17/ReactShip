@@ -1,9 +1,13 @@
 import { useState } from 'react'
 
-interface BoardPointProps {
-    hit: string
-}
+export function BoardPoint({ simbolWhenHit = 'x' }) {
 
-export function BoardPoint({ hit }: BoardPointProps) {
-    return <div>{hit}</div>
+    const [simbolOnScreen, setSimbolOnScreen] = useState('-')
+
+    const hitThePoint = () => setSimbolOnScreen(simbolWhenHit)
+
+    return (
+        <div
+        onClick={hitThePoint}>{simbolOnScreen}</div>
+    )
 }

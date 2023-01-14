@@ -2,7 +2,7 @@ import { BoardPoint } from "../boardPoint/BoardPoint";
 
 export function Board() {
 
-    const aRow = new Array(10).fill(<BoardPoint hit={false} />, 0)
+    const aRow = new Array(10).fill(<BoardPoint />, 0)
     const board = new Array(10).fill(aRow, 0)
     
    return (

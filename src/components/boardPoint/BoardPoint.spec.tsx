@@ -11,7 +11,7 @@ describe('Board Point', () => {
     it('Should Default to a -', () => {
 
         // Given...
-        const { getByText, debug } = render(<BoardPoint hit={false}/>)
+        const { getByText } = render(<BoardPoint />)
 
         // When...
         const componentOnScreen = getByText('-')
@@ -25,15 +25,32 @@ describe('Board Point', () => {
     it('Should turn into a x if the point is not part of a ship when hit', () => {
 
         // Given...
-        const {getByText} = render(<BoardPoint hit={true}/>)
-
-        // When...
+        const { getByText } = render(<BoardPoint />)
         const componentOnScreen = getByText('-')
 
+        // When...
+        componentOnScreen.click()
+        const changedComponent = getByText('x')
+
         // Then...
-        expect(componentOnScreen)
+        expect(changedComponent)
             .toBeInTheDocument()
 
+    })
+
+    it('should turn into a o if the point is part of a ship', () => {
+
+
+        // Given...
+        const { getByText, debug } = render(<BoardPoint simbolWhenHit="o" />)
+        const shipPoint = getByText('-')
+
+        // When...
+        shipPoint.click()
+
+        // Then...
+        debug()
+        
     })
     
 })
